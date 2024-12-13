@@ -1,0 +1,104 @@
+
+.cuadro {
+    background-color: rgb(7, 82, 105);
+    padding: 50px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: right;
+}
+
+.ul{
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: flex-end;
+    align-items: right;
+}
+
+.li{
+    margin: 0 .5em;
+    color: rgb(7, 82, 105);
+    font-size: 30px;
+}
+
+.h3{
+    font-size: 15px;
+    color: rgba(137,3,3,1)
+}
+
+.fondologin{
+    display: block
+}
+
+.controls{
+    font-size: 20px;
+    background-color: rgba(1,13,21,0);
+    color: gray;
+    border: rgba(1,13,21,0);
+    border-bottom: black;
+
+}
+
+.buttom-ing{
+    padding: 2%;
+    font-weight:bold;
+    text-decoration: none;
+    background-color: rgba(0, 48, 78, 0.6);
+    font-size: 2rem;
+    color: black;
+    width: 8em;
+    height: 3em;
+    padding: 1% 1%;
+    margin-left: 2vh;
+    border-radius: 600px;
+    cursor: pointer;
+    text-align: center;
+
+}
+.fondologin {
+    background-color: rgba(1,13,21,0.2);
+    width: 500px;
+    height: 500px;
+}
+
+.menuprincipal{
+    display: flex;
+
+    
+}
+.menudesp{
+    padding:2rem 10rem;
+    margin-top: 10px;
+    font-size: 22px;
+}
+
+.general{
+    padding: 8px;
+    background-color: rgb(226, 223, 223);
+    border-radius: 600px
+}
+.ingdatos{
+    padding-top: 8px;
+    background-color: rgb(226, 223, 223);
+    border-color: rgb(226, 223, 223);
+    border-radius: 600px
+ }
+
+.cajapermisos{
+    display: flex;
+    font-size: 20px;
+}
+
+.encroles{
+    display: flex;
+    font-size: 20px;
+    flex-grow: 1;
+}
+
+.encroles1{
+    flex-grow: 1;
+    width: 25%;
+}
+
+.datos{
+    width: 100%;
+}

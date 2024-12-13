@@ -1,0 +1,131 @@
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+<style></style>
+<div class="cuadro">
+  <h1>LOGO DE LA EMPRESA</h1>
+  <ul class="ul">
+    <li class="li"><a href="#" class="a"> INICIO</a></li>
+    <li class="li"><a href="#" class="a"> REGISTRO</a></li>
+  </ul>
+</div>
+
+<div class="menuprincipal">
+  <div class="menudesp">
+    <ul>
+      <li>
+        Administración
+        <ul class="submenu">
+          <li><a href="/gestionUsuarios">Gestion de Usuarios</a></li>
+          <ul class="submenu1">
+            <li><a href="/creacionusuarios">Creación Usuarios</a></li>
+            <li><a href="/actualizacionusuarios">Actualización Usuarios</a></li>
+            <li><a href="/rolesypermisos">Roles y Permisos</a></li>
+          </ul>
+        </ul>
+      </li>
+      <li>
+        Terceros
+        <ul class="submenu">
+          <li><a href="/creacionterceros">Creación de Terceros</a></li>
+          <li><a href="/consultaterceros">Consulta de Terceros</a></li>
+          <li><a href="/actualizaciondatos">Actualización de Datos</a></li>
+        </ul>
+      </li>
+      <li>
+        Reportes
+        <ul class="submenu">
+          <li><a href="/Compras">Terceros</a></li>
+          <li>Documentos</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="permisosenc">
+    <h3 class="general">ROLES Y PERMISOS</h3>
+    <br>  
+    <div class="encroles1">Modulos / Perfil</div>
+    <div class="encroles1">Manager</div>
+    <div class="encroles1">Administrador</div>
+    <div class="encroles1">Consulta</div>
+  </div>
+
+  <div class="cajapermisos">
+    <div class="menudesprol">
+      <br>
+      <label>1. Administración</label><br>
+      <label>1.1. Gestión de Usuarios</label><br>
+      <label>1.1.1. Creación de Usuarios</label><br>
+      <label>1.1.2. Actualización de Usuarios</label><br>
+      <label>1.1.3. Roles y Permisos</label><br><br>
+      <label>2. Terceros</label><br>
+      <label>2.1. Creación de Terceros</label><br>
+      <label>2.2 Consulta de Terceros</label><br>
+      <label>2.3 Actualización de Datos</label><br><br>
+      <label>3. Reportes</label><br>
+      <label>3.1 Terceros</label><br>
+      <label>3.2 Documentos</label><br>
+    </div>
+    <div class="checpermisos">
+        <br><br><br><input class="ingdatos" type="checkbox" name=Managercreacionusu, value="Sí">
+        <input class="ingdatos" type="checkbox" name=Admoncreacionusu, value="Sí">
+        <input class="ingdatos" type="checkbox" name=Consultacreacionusu, value="Sí"><br>
+        <input class="ingdatos" type="checkbox" name=Manageractusu, value="Sí">
+        <input class="ingdatos" type="checkbox" name=Admonactusu, value="Sí">
+        <input class="ingdatos" type="checkbox" name=Consultaactusu, value="Sí"><br>
+        <input class="ingdatos" type="checkbox" name=ManagerRolusu, value="Sí">
+        <input class="ingdatos" type="checkbox" name=AdmonRolusu, value="Sí">
+        <input class="ingdatos" type="checkbox" name=ConsultaRolusu, value="Sí"><br><br><br>
+        <input class="ingdatos" type="checkbox" name=ManagercreacionTer, value="Sí">
+        <input class="ingdatos" type="checkbox" name=AdmoncreacionTer, value="Sí">
+        <input class="ingdatos" type="checkbox" name=ConsultacreacionTer, value="Sí"><br>
+        <input class="ingdatos" type="checkbox" name=ManagerConsultaTer, value="Sí">
+        <input class="ingdatos" type="checkbox" name=AdmonConsultaTer, value="Sí">
+        <input class="ingdatos" type="checkbox" name=ConsultaConsultaTer, value="Sí"><br>
+        <input class="ingdatos" type="checkbox" name=ManagerActTer, value="Sí">
+        <input class="ingdatos" type="checkbox" name=AdmonActTer, value="Sí">
+        <input class="ingdatos" type="checkbox" name=ConsultaActTer, value="Sí"><br><br><br>
+        <input class="ingdatos" type="checkbox" name=ManagerReporteTer, value="Sí">
+        <input class="ingdatos" type="checkbox" name=AdmonReporteTer, value="Sí">
+        <input class="ingdatos" type="checkbox" name=ConsultaReporteTer, value="Sí"><br>
+        <input class="ingdatos" type="checkbox" name=ManagerReporteDoc, value="Sí">
+        <input class="ingdatos" type="checkbox" name=AdmonReporteDoc, value="Sí">
+        <input class="ingdatos" type="checkbox" name=ConsultaReporteDoc, value="Sí">
+    </div>
+  </div>
+  </div>
+</div>
+
+<div id="wrapper-close">
+  <button>CERRAR SESIÓN</button>
+</div>
+
+<script>
+  const menuItems = document.querySelectorAll("#wrapper-menu > ul > li");
+
+  menuItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      // Ocultar todos los submenús excepto el seleccionado
+      const submenus = document.querySelectorAll("#wrapper-menu .submenu");
+      submenus.forEach((submenu) => {
+        if (submenu !== item.querySelector(".submenu")) {
+          submenu.style.display = "none";
+        }
+      });
+
+      // Mostrar u ocultar el submenú actual
+      const submenu = item.querySelector(".submenu");
+      if (submenu) {
+        const isVisible = submenu.style.display === "block";
+        submenu.style.display = isVisible ? "none" : "block";
+
+        // Ajustar el margen superior del contenido debajo del menú
+        const content = document.getElementById("content");
+        const totalHeight = Array.from(submenus)
+          .filter((menu) => menu.style.display === "block")
+          .reduce((height, menu) => height + menu.offsetHeight, 0);
+        content.style.marginTop = totalHeight + 20 + "px";
+      }
+    });
+  });
+</script>

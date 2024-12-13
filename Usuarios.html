@@ -1,0 +1,106 @@
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+<style></style>
+<div class="cuadro">
+  <h1>LOGO DE LA EMPRESA</h1>
+  <ul class="ul">
+    <li class="li"><a href="#" class="a"> INICIO</a></li>
+    <li class="li"><a href="#" class="a"> REGISTRO</a></li>
+  </ul>
+</div>
+
+<div class="menuprincipal">
+    <div class="menudesp">
+    <ul>
+      <li>
+        Administración
+        <ul class="submenu">
+          <li><a href="/gestionUsuarios">Gestion de Usuarios</a></li>
+          <ul class="submenu1">
+            <li><a href="/creacionusuarios">Creación Usuarios</a></li>
+            <li><a href="/actualizacionusuarios">Actualización Usuarios</a></li>
+            <li><a href="/rolesypermisos">Roles y Permisos</a></li>
+          </ul>
+        </ul>
+      </li>
+      <li>
+        Terceros
+        <ul class="submenu">
+          <li><a href="/creacionterceros">Creación de Terceros</a></li>
+          <li><a href="/consultaterceros">Consulta de Terceros</a></li>
+          <li><a href="/actualizaciondatos">Actualización de Datos</a></li>
+        </ul>
+      </li>
+      <li>
+        Reportes
+        <ul class="submenu">
+          <li><a href="/Compras">Terceros</a></li>
+          <li>Documentos</li>
+        </ul>
+      </li>
+    </ul>
+    </div>
+    
+    <div class="menudesp">
+      <h5 class="general">CREACIÓN DE USUARIOS</h5>
+      <br>
+      <label>ID Usuario</label>
+      <input class="ingdatos" type="text" name=IDUsuario, value="">
+      <br><br>
+      <label>Nombre Usuario</label>
+      <input class="ingdatos" type="text" name=NombreUsuario, value="">
+      <br><br>
+      <label>Cargo Usuario</label>
+      <input class="ingdatos" type="text" name=CargoUsuario, value="">
+      <br><br>
+      <label>Perfil de Usuario</label>
+      <input class="ingdatos" type="text" name=PerfilUsuario, value="">
+      <br><br>
+      <label>Clave Acceso</label>
+      <input class="ingdatos" type="text" name=ClaveAcceso, value="">
+      <br><br>
+      <label>Solicitar Cambio clave al inicar sesión</label>
+      <input class="ingdatos" type="checkbox" name=CambioClave, value="Sí">
+      <br><br>
+      <label>Estado Usuario</label>
+      <select class="ingdatos" name=CambioClave id="EstadoUsuario">
+        <option value="Activo">Activo</option>
+        <option value="Inactivo">Inactivo</option>
+      </select>
+      <br><br>
+    </div>
+</div>
+
+<div id="wrapper-close">
+  <button>CERRAR SESIÓN</button>
+</div>
+
+<script>
+  const menuItems = document.querySelectorAll("#wrapper-menu > ul > li");
+
+  menuItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      // Ocultar todos los submenús excepto el seleccionado
+      const submenus = document.querySelectorAll("#wrapper-menu .submenu");
+      submenus.forEach((submenu) => {
+        if (submenu !== item.querySelector(".submenu")) {
+          submenu.style.display = "none";
+        }
+      });
+
+      // Mostrar u ocultar el submenú actual
+      const submenu = item.querySelector(".submenu");
+      if (submenu) {
+        const isVisible = submenu.style.display === "block";
+        submenu.style.display = isVisible ? "none" : "block";
+
+        // Ajustar el margen superior del contenido debajo del menú
+        const content = document.getElementById("content");
+        const totalHeight = Array.from(submenus)
+          .filter((menu) => menu.style.display === "block")
+          .reduce((height, menu) => height + menu.offsetHeight, 0);
+        content.style.marginTop = totalHeight + 20 + "px";
+      }
+    });
+  });
+</script>
